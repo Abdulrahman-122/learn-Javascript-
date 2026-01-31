@@ -1,0 +1,77 @@
+conditional statements;
+if-else statements
+if(condition) {
+body;}else{
+body;}
+comparison operators;
+<  greater than
+> less than
+<=  greater than and equal to 
+>= less  than and equal to
+=== is equal to
+!== is not equal to 
+conditional operators;
+&& and
+|| or
+! not or negate
+----
+falsy vs truthy statements
+if the variable contain a value -> this is truthy
+if the variable doesn't contain a value -> this is falsy
+---
+short circuit evaulation;
+let username = '';
+let defaultName = username || 'Stranger';
+
+console.log(defaultName); // Prints: Stranger
+--
+ternery operator-> is a simple way to make if , else condition
+let isNightTime = true;
+
+if (isNightTime) {
+  console.log('Turn on the lights!');
+} else {
+  console.log('Turn off the lights!');
+}
+isNightTime ? console.log('Turn on the lights!') : console.log('Turn off the lights!');
+---
+if else statement;
+
+let stopLight = 'yellow';
+
+if (stopLight === 'red') {
+  console.log('Stop!');
+} else if (stopLight === 'yellow') {
+  console.log('Slow down.');
+} else if (stopLight === 'green') {
+  console.log('Go!');
+} else {
+  console.log('Caution, unknown!');
+}
+---
+switch case;
+let groceryItem = 'papaya';
+
+switch (groceryItem) {
+  case 'tomato':
+    console.log('Tomatoes are $0.49');
+    break;
+  case 'lime':
+    console.log('Limes are $1.49');
+    break;
+  case 'papaya':
+    console.log('Papayas are $1.29');
+    break;
+  default:
+    console.log('Invalid item');
+    break;
+}
+
+// Prints 'Papayas are $1.29'
+
+
+notes;
+if - else statements => binary operations
+switch case is used to make operation simple than if else statements
+
+
