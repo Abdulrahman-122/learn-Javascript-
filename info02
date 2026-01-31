@@ -1,0 +1,43 @@
+variables;
+it should be in a camelCase (first word has small characters + the following words their first character is capital)
+shouldn't start with a number
+variables; is a place to store value into memory
+
+to make a variable ; 1. var (old keyword before ES6) 
+var variablename ;
+note; don't forget ;  
+2. let  (new keyboard that made after ES6 version of Js)
+
+let variablename ; 
+console.log(variablename)   ->  variablename = undefined 
+variblename with let -> can be reassigned again
+3.const (make constant variable)
+const variablename ;
+console.log(variablenamee) 
+=> value here into this variable can't be alert or changes .
+some assignment operators should be know
+1. +=  
+2. -=
+3. *= 
+4. /= 
+5. ++ increment operator
+6. -- decrement operator
+----
+we can use (+) for concatenate two strings;
+ let myPet = 'armadillo';
+console.log('I own a pet ' + myPet + '.'); 
+// Output: 'I own a pet armadillo.'
+to make an interpolation for your text inside string  
+use; ${text}  
+console.log(${text} );
+---
+we use ; typeof behine the variable to determine it's type
+console.log(typeof variablename)
+-- 
+notes;
+ES6 => is  the newer version today of JS it contains new things like ; let,const , arrow functions...
+-> stands for Ecma script six edition 
+
+
+
+
