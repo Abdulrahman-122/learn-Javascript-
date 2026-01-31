@@ -1,0 +1,16 @@
+there are 4 many operatores into js
+1. Arithmatic ; +,-,%,- 
+2. we use + to concatenate two words to form a string
+3. string.length =-> show you the number of characters into that string
+4. use string.Trim() to remove any whitespace around the string
+5. use string.toUpperCase to make string in Uppercase 
+
+some built in functions;
+1. Math.random() ==> generate a random num
+2.Math.floor()  -> generate the number that is  greater or equal to the current number
+Math.ceil() -> generate the number that is  less than or equal to the current number 
+Number.Isinteger (number to compare with) -> check whether number is integer or not if yes return True else no
+comments;
+// single line 
+/**/ multiline comments
+
