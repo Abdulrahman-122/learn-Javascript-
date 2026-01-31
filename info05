@@ -1,0 +1,64 @@
+Scopes 
+it's the context where variables may be  globally or locally in .
+const city = 'New York City'; // global variable
+
+const logCitySkyline = () => {
+  let skyscraper = 'Empire State Building'; // local variable 
+  return 'The stars over the ' + skyscraper + ' in ' + city;
+};
+console.log(logCitySkyline(city)) 
+--- 
+ex; on global scope
+const satellite= 'The Moon'; // this is global
+const galaxy= 'The Milky Way';//  -------
+const stars='North Star';     // ---------
+
+const callMyNightSky=()=>{
+return 'Night Sky: ' + satellite + ', ' + stars + ', and ' + galaxy;
+
+}
+console.log(callMyNightSky())
+ex on local scope
+ const logVisibleLightWaves=()=>{
+  const lightWaves='Moonlight';
+  console.log(lightWaves);
+ }
+ 
+ logVisibleLightWaves()
+---
+this is how scope pollution works ( you named two variable with the same name one of them local and the other global once you
+log the local the global will reassign by the local and make pollution into the code .
+const satellite = 'The Moon';
+const galaxy = 'The Milky Way';
+let stars = 'North Star';
+
+const callMyNightSky = () => {
+   stars= 'Sirius';
+	return 'Night Sky: ' + satellite + ', ' + stars + ', ' + galaxy;
+};
+
+console.log(callMyNightSky());
+console.log(stars);  // Sirius is now inside the global stars
+--
+this is how to make scope precise to avoid any pollution  using ; block scope.
+const logVisibleLightWaves = () => {
+  let lightWaves = 'Moonlight';
+	let region = 'The Arctic';
+  // Add if statement here:
+  if (region==="The Arctic"){
+    let lightWaves='Northern Lights';   // here we add new value the same variable in the function above but notice they are isolated from each other
+    
+    console.log(lightWaves)   // the output here   will be for the second function as log inside it's scope
+  
+  }
+  console.log(lightWaves); // the output here will be for the first function as we log inside it's scope
+};
+
+logVisibleLightWaves();
+notes;
+scopes ; are the context in which variables located in
+global scopes -> context where it's variables are accessible through the whole program
+local scopes -> context where it's variables are accessible through the block scope or the local scope
+Global namespace -> space in our program which contain global variables;
+
+
