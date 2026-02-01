@@ -1,0 +1,145 @@
+Arrays
+- const hobbies=['reading books','studying','learning skills'];
+console.log(hobbies)
+-notes ;
+--> array may contain different datatypes
+--> you should disconnect items by a commas
+
+Accessing elements of array using brackets;
+const famousSayings = ['Fortune favors the brave.', 'A joke is a very serious thing.', 'Where there is love there is life.'];
+let listItem='Fortune favors the brave.';
+console.log(listItem)
+console.log(famousSayings[2])
+console.log(famousSayings[3])    => will return undefined as this out of range
+
+To change the value inside an array : 
+let groceryList = ['bread', 'tomatoes', 'milk'];
+groceryList[1]='avocados';
+console.log(groceryList)
+
+as you see if your array was assigned with variable that can be changes so ; you can assign new values into this array  and reassign this array to new values 
+while if variable that the array was assigned to was const that mean you can assign new values to the array but you can't reassign array to another new array 
+let condiments = ['Ketchup', 'Mustard', 'Soy Sauce', 'Sriracha'];
+
+const utensils = ['Fork', 'Knife', 'Chopsticks', 'Spork'];
+
+condiments[0]='Mayo';
+console.log(condiments)
+condiments=['Mayo'];
+console.log(condiments)
+utensils[3]='Spoon';
+console.log(utensils);
+utensils=['Spoon'];   -> return an error
+
+To know the number of elements into an array ; you can use arrayname.length -> return number of items into an array
+const objectives = ['Learn a new language', 'Read 52 books', 'Run a marathon'];
+
+console.log(objectives.length)
+
+--
+you can add some items into an array using ; push () 
+const itemTracker = ['item 0', 'item 1', 'item 2'];
+
+console.log(itemTracker.push('item 3', 'item 4')) ; this will push these values into the array + will return the length of the new array.
+
+console.log(itemTracker); 
+// Output: ['item 0', 'item 1', 'item 2', 'item 3', 'item 4'];
+
+remove the elements of an array using ; pop()
+const newItemTracker = ['item 0', 'item 1', 'item 2'];
+
+const removed = newItemTracker.pop();
+
+console.log(newItemTracker); 
+// Output: [ 'item 0', 'item 1' ]
+console.log(removed);
+// Output: item 2
+-- 
+make new  array using ; new 
+const musicGenres = new Array('Rock', 'Pop', 'Country');
+
+-- 
+this called Nested array
+// Create a nested array
+const musicGenres = [
+  ['Rock', 'Pop', 'Country'],
+  ['Soul', 'Hip Hop', 'Reggae'],
+  ['Folk', 'Classical', 'Electronic'],
+];
+
+// Retrieve the genre at index 2 of the array at index 1
+console.log(musicGenres[1][2]);
+// Output: Reggae
+
+// Retrieve the genre at index 1 of the array at index 0
+console.log(musicGenres[0][1]);
+// Output: Pop
+
+---
+some other built in functions you can take care of ;
+const groceryList = ['orange juice', 'bananas', 'coffee beans', 'brown rice', 'pasta', 'coconut oil', 'plantains'];
+
+groceryList.shift()
+console.log(groceryList)
+
+groceryList.unshift('popcorn')
+console.log(groceryList)
+
+console.log(groceryList.slice(1,4))
+console.log(groceryList)
+
+const pastaIndex=groceryList.indexOf('pasta')
+console.log(pastaIndex)
+
+output;
+[
+  'bananas',
+  'coffee beans',
+  'brown rice',
+  'pasta',
+  'coconut oil',
+  'plantains'
+]
+[
+  'popcorn',
+  'bananas',
+  'coffee beans',
+  'brown rice',
+  'pasta',
+  'coconut oil',
+  'plantains'
+]
+[ 'bananas', 'coffee beans', 'brown rice' ]
+[
+  'popcorn',
+  'bananas',
+  'coffee beans',
+  'brown rice',
+  'pasta',
+  'coconut oil',
+  'plantains'
+]
+4
+
+--
+we can change(mutate) value of an array inside a function usign built in function
+const concept = ['arrays', 'can', 'be', 'mutated'];
+
+function changeArr(arr){
+  arr[3] = 'MUTATED';
+}
+
+changeArr(concept);
+
+console.log(concept) 
+
+function removeElement(newArr){
+  newArr.pop();
+}
+removeElement(concept);
+console.log(concept)
+
+output;
+[ 'arrays', 'can', 'be', 'MUTATED' ]
+[ 'arrays', 'can', 'be' ]
+
