@@ -1,0 +1,33 @@
+Higher order functions;
+-> function that accept assigning into it another function as a parameter or return a function .
+const checkThatTwoPlusTwoEqualsFourAMillionTimes = () => {
+  for(let i = 1; i <= 1000000; i++) {
+    if ( (2 + 2) != 4) {
+      console.log('Something has gone very wrong :( ');
+    }
+  }
+};
+// function as Data
+// Write your code below
+const isTwoPlusTwo=checkThatTwoPlusTwoEqualsFourAMillionTimes;
+isTwoPlusTwo();
+console.log(isTwoPlusTwo.name)    // .name here return the name of the function inside that variable
+
+-- 
+to pass a function as a parameter
+const addTwo = num => {
+  return num + 2;
+}
+
+const checkConsistentOutput = (func, val) => {
+const checkA=val+2;
+const checkB=func(val);
+if (checkA===checkB){
+  return func(val);
+}else{
+  return "inconsistent results";
+}
+}
+
+console.log(checkConsistentOutput(addTwo,2));
+
