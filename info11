@@ -1,0 +1,424 @@
+Advanced objects;
+
+1. to access any property inside any property into the same object; use this.property
+ex;
+1.
+
+Let’s create a new object to practice using this.
+
+In main.js, there is an object called robot. Add a property called model and assign to it a value of '1E78V2'. Add another property, energyLevel, and assign to it a value of 100.
+Checkpoint 2 Passed
+
+2.
+
+With the robot object, add a method named provideInfo() that returns the following string using interpolation:
+
+I am <MODEL> and my current energy level is <ENERGYLEVEL>.  
+
+Copy to Clipboard
+
+Replace <MODEL> and <ENERGYLEVEL> with the calling object’s model and energyLevel properties, respectively. Remember, to get access to the calling object’s properties inside a method, you have to use the this keyword!
+Checkpoint 3 Passed
+
+3.
+
+Now, check that .provideInfo() has access to the internal properties of robot. Log the result of calling the .provideInfo() method on robot to the console
+solution;
+const robot = {
+  model:'1E78V2',
+  energyLevel:100,
+  provideInfo(){
+    return `I am ${this.model} and my current energy level is ${this.energyLevel}.`
+  }
+};
+console.log(robot.provideInfo())
+output;
+I am 1E78V2 and my current energy level is 100.
+---
+note; that if you put an arrow method inside an object and you didn't use shorthand or longhand format to access it's internal property using this it will return an error
+ex;
+1.
+
+Currently, the .checkEnergy() method is not producing the correct output because it is using arrow function syntax (it prints undefined instead of the correct energyLevel value).
+
+Refactor, or change, the method to use a function expression. You can write the function using either longhand or shorthand format.
+
+After refactoring the method, notice that .checkEnergy() has access to the other internal properties of the robot obj
+solution;
+const robot = {
+  energyLevel: 100,
+  checkEnergy:function () {  //this is a longhand format for making a method inside an object.
+    console.log(`Energy is currently at ${this.energyLevel}%.`)
+  },
+  checkEnergy2(){   // this is the shorthand format for making a method inside an object
+   console.log(`Energy is currently at ${this.energyLevel}%.`)
+  }
+}
+
+robot.checkEnergy();
+robot.checkEnergy2();
+
+output;
+Output-only Terminal
+Output:
+
+Energy is currently at 100%.
+Energy is currently at 100%.
+-- 
+now if you want to tell other developers to unchange the value of a property inside an object put _ infront of the key name of it
+1.
+
+Below the robot object, reassign the _energyLevel property to 'high'.
+Checkpoint 2 Passed
+
+2.
+
+Now take a look at the new recharge() method in robot. The .recharge() method will add 30 to _energyLevel.
+
+What will happen now that _energyLevel isn’t a number?
+
+Call .recharge() on robot to find out.
+
+Notice that a funky string is printed to the console! This is known as a side-effect of type coercion. No need to worry about what this means for now, but it’s important to understand that you can cause unwanted side effects when mutating objects and their properties.
+solution;
+const robot = {
+  _energyLevel: 100,
+  recharge(){
+    this._energyLevel += 30;
+    console.log(`Recharged! Energy is currently at ${this._energyLevel}%.`)
+  }
+};
+console.log(robot)
+ robot._energyLevel='high';
+ robot.recharge()
+console.log(robot)
+output;
+{ _energyLevel: 100, recharge: [Function: recharge] }
+Recharged! Energy is currently at high30%.
+{ _energyLevel: 'high30', recharge: [Function: recharge] }
+---
+get method 
+-> is used to make conditions inside object
+-> applied on different properties
+ex;
+1.
+
+In robot, create a getter method named energyLevel using the get keyword. Leave the function body blank for now.
+Checkpoint 2 Passed
+
+2.
+
+Inside the getter method, add an if statement to check if this._energyLevel is a number using the typeof operator. If that condition is truthy, return 'My current energy level is <ENERGYLEVEL>'. Replace <ENERGYLEVEL> with the value of this._energyLevel.
+
+Make sure you return the string instead of logging it to the console.
+Checkpoint 3 Passed
+
+3.
+
+If this._energyLevel isn’t a number, it could be that the _energyLevel property was altered. Let’s add a default return statement for when such a scenario arises.
+
+Add an else statement that returns 'System malfunction: cannot retrieve energy level'.
+Checkpoint 4 Passed
+
+4.
+
+Log the result of calling the getter method energyLevel on robot to the console.
+
+Notice that the method will return a formatted response rather than just accessing a property!
+
+solution;
+const robot = {
+  _model: '1E78V2',
+  _energyLevel: 100,
+  get energyLevel(){
+    if(typeof(this._energyLevel)=='number'){
+      return `My current energy level is ${this._energyLevel}.`
+    }
+    else{
+      return 'System malfunction: cannot retrieve energy level'
+    }
+  }
+};
+
+
+console.log(robot.energyLevel);
+
+output;
+My current energy level is 100.
+---
+setter method;
+-> it's used to put another value for the internal properties
+-> it doesn't need for any parenthesis when invoking (logs like the proprties)
+ex;
+1.
+
+Currently, in robot there is a getter method for _numOfSensors but no setter method! What if we need to add or remove some sensors? Let’s fix that problem.
+
+Add a setter method named numOfSensors using the set keyword. Provide a parameter of num. Leave the function body empty for now.
+Checkpoint 2 Passed
+
+2.
+
+There are a couple of things we should do in the setter method:
+
+    Add a check to see if num is a number using the typeof operator.
+    num should also be greater than or equal to 0.
+    If both conditions are met, reassign this._numOfSensors to num.
+
+Checkpoint 3 Passed
+
+3.
+
+Now add an else that logs 'Pass in a number that is greater than or equal to 0' to the console.
+Checkpoint 4 Passed
+
+4.
+
+Use the numOfSensors setter method on robot to assign _numOfSensors to 100.
+Checkpoint 5 Passed
+
+5.
+
+To check that the setter method worked, console.log() robot.numOfSensors.
+solution;
+const robot = {
+  _model: '1E78V2',
+  _energyLevel: 100,
+  _numOfSensors: 15,
+  get numOfSensors(){
+    if(typeof this._numOfSensors === 'number'){
+      return this._numOfSensors;
+    } else {
+      return 'Sensors are currently down.'
+    }
+  },
+  set numOfSensors(num){
+    if(typeof(num)==='number'&& num>=0){
+       this._numOfSensors=num;
+    }
+    else{
+      console.log('Pass in a number that is greater than or equal to 0')
+    }
+  }
+  
+};
+robot.numOfSensors=100;
+console.log("set a  new value for sensors using set method :"+robot.numOfSensors)
+console.log("This is the new value for sensors:"+robot._numOfSensors)
+output;
+Output-only Terminal
+Output:
+
+set a  new value for sensors using set method :100
+This is the new value for sensors:100
+---
+Factory function
+-> it's a function that is take a parameters and return an object for you 
+ex;
+1.
+
+Instead of making individual robots like we’ve been doing, let’s make a factory function to make robots as we please!
+
+Create a factory function named robotFactory that has two parameters, model and mobile (in that order). Make the function return an object. In the object, add a key of model with the value of the model parameter. Add another property that has a key of mobile with a value of the mobile parameter.
+
+Then add a method named beep that takes no parameters and logs 'Beep Boop' to the console.
+Checkpoint 2 Passed
+
+2.
+
+Use your factory function by declaring a const variable named tinCan. Assign to tinCan the value of calling robotFactory() with 'P-500' as the first argument and true as the second.
+Checkpoint 3 Passed
+
+3.
+
+Let’s now check what tinCan can do! Call .beep() on tinCan.
+
+You should see 'Beep Boop' printed to the console, which means the factory function produced a robot object! Play around with tinCan to check the other properties!
+ouput;
+const robotFactory=(model,mobile)=>{
+  return {
+    model:model,
+    mobile:mobile,
+    beep(){
+      console.log('Beep Boop');
+    }
+
+  }
+}
+const tinCan=robotFactory('P-500',true);
+tinCan.beep();
+console.log(tinCan)
+output;
+Beep Boop
+{ model: 'P-500', mobile: true, beep: [Function: beep] }
+---
+property value shorthand
+-> this is a way to reduce the scale of factory functions to make it easy to enter data into it and output an object
+ex;
+1.
+
+Use the property value shorthand to refactor the factory function in main.js.
+
+solution;
+const robotFactory = (model, mobile) => {
+  return {
+    model:model,
+    mobile:mobile,
+    beep() {
+      console.log('Beep Boop');
+    }
+  }
+} 
+// after applying property value shorthand 
+const updatedrobotFactory = (model, mobile) => {
+  return {
+    model,
+    mobile,
+    beep() {
+      console.log('Beep Boop');
+    }
+  }
+}
+
+// To check that the property value shorthand technique worked:
+const newRobot = robotFactory('P-501', false)
+console.log(newRobot.model)
+console.log(newRobot.mobile)
+console.log(newRobot)
+const newRobot2=updatedrobotFactory('P-501',true)
+console.log(newRobot2.model)
+console.log(newRobot2.mobile)
+console.log(newRobot2)
+
+output;
+P-501
+false
+{ model: 'P-501', mobile: false, beep: [Function: beep] }
+P-501
+true
+{ model: 'P-501', mobile: true, beep: [Function: beep] }
+
+----
+Distructuring assignment;
+-> we use this concept to reduce our code to access the properities of an object
+ex;
+1.
+
+Use destructured assignment to create a const variable named functionality that extracts the functionality property of robot.
+
+If you need a reminder on how to use destructured assignment, review the example in the narrative or check the hint.
+Checkpoint 2 Passed
+
+2.
+
+Since functionality is referencing robot.functionality we can call the methods available to robot.functionality simply through functionality.
+
+Take advantage of this shortcut and call the .beep() method on functionality.
+solution;
+const robot = {
+  model: '1E78V2',
+  energyLevel: 100,
+  functionality: {
+    beep() {
+      console.log('Beep Boop');
+    },
+    fireLaser() {
+      console.log('Pew Pew');
+    },
+  }
+};
+// we put {key to access}=nameofobject
+const {functionality}=robot;
+console.log(functionality)
+functionality.fireLaser();
+functionality.beep();
+output;
+{ beep: [Function: beep], fireLaser: [Function: fireLaser] }
+Pew Pew
+Beep Boop
+--- 
+there's a list of object's method that you can use on your object to modify or add new values to it ; here some example of some of them the rest you will return to it when you needs
+ex;
+1.
+
+In main.js, there is an object, robot. We’d like to grab the property names, otherwise known as keys, and save them in an array assigned to robotKeys. However, there’s something missing in the method call.
+
+Find out what we have to include by reading MDN’s Object.keys() documentation.
+Checkpoint 2 Passed
+
+2.
+
+Object.entries() will also return an array, but the array will contain more arrays that have both the key and value of the properties in an object.
+
+Declare a const variable named robotEntries and assign to it the entries of robot by calling Object.entries().
+
+To learn more about Object.entries(), read the documentation at MDN.
+Checkpoint 3 Passed
+
+3.
+
+Now, what if we want another object that has the properties of robot but with a few additional properties? Object.assign() sounds like a great method to use, but like the previous examples, we should check Object.assign() documentation at MDN.
+
+Declare a const variable named newRobot. newRobot will be a new object that has all the properties of robot and the properties in the following object:
+
+{laserBlaster: true, voiceRecognition: true}
+
+Copy to Clipboard
+
+Make sure that you are NOT changing the robot object!
+solution;
+  const robot = {
+	model: 'SAL-1000',
+  mobile: true,
+  sentient: false,
+  armor: 'Steel-plated',
+  energyLevel: 75
+};
+
+// What is missing in the following method call?
+// objects.keys(objectname)
+const robotKeys = Object.keys(robot);
+
+console.log(robotKeys);
+
+// Declare robotEntries below this line:
+const robotEntries=Object.entries(robot);
+// will return an array for each key-value pair 
+console.log(robotEntries);
+
+// Declare newRobot below this line:
+const target={laserBlaster: true, voiceRecognition: true}
+
+const newRobot=Object.assign(target,robot)
+
+console.log(newRobot);
+
+output;
+[ 'model', 'mobile', 'sentient', 'armor', 'energyLevel' ]
+[
+  [ 'model', 'SAL-1000' ],
+  [ 'mobile', true ],
+  [ 'sentient', false ],
+  [ 'armor', 'Steel-plated' ],
+  [ 'energyLevel', 75 ]
+]
+{
+  laserBlaster: true,
+  voiceRecognition: true,
+  model: 'SAL-1000',
+  mobile: true,
+  sentient: false,
+  armor: 'Steel-plated',
+  energyLevel: 75
+}
+
+notes;
+this can be used to access the properites of object
+methods doesn't have any internal access to other properites of the object
+arrow methods can't used to access the internal properties
+js doesn't have any built in privacy
+setters,getters are used to add some settings to the object
+we use factory functions to make fast objects
+to make object distructuring 
+  use ; property value shorthand
+  or ; distructuring assigning
