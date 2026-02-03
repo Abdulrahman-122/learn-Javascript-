@@ -1,0 +1,483 @@
+Objects in JS;
+The spaceship we have so far looks good (see the code block in the narrative text), but unfortunately, it is not very fast at hyperspace travel due to having an inferior fuel source. Make a new spaceship object named fasterShip with the same color as spaceship but with a Fuel Type equal to 'Turbo Fuel'.
+// Write your fasterShip object literal below
+let fasterShip={
+  'Fuel Type':'Turbo Fuel',
+  color:'silver'
+};
+
+to access the properties of an object;
+1.
+
+Let’s use the dot operator to access the value of numCrew from the spaceship object in the code editor. Create a variable crewCount and assign the spaceship object’s numCrew property to it.
+Checkpoint 2 Passed
+
+2.
+
+Again, using the dot operator, create a variable planetArray and assign the spaceship object’s flightPath property to it.
+
+solution;
+let spaceship = {
+  homePlanet: 'Earth',
+  color: 'silver',
+  'Fuel Type': 'Turbo Fuel',
+  numCrew: 5,
+  flightPath: ['Venus', 'Mars', 'Saturn']
+};
+
+// Write your code below
+const crewCount=spaceship.numCrew
+const planetArray=spaceship.flightPath
+console.log(crewCount)
+console.log(planetArray)
+output;
+5
+[ 'Venus', 'Mars', 'Saturn' ]
+note if the key not into the object -> undefined value will returned.
+
+---
+
+to access the value or the property of the object -> you can use bracket notation instead of .key as bracket notation used with keys who contains spaces 
+example;
+1.
+
+Let’s use bracket notation to access the value of 'Active Mission' from the spaceship object in the code editor. Create a variable isActive and assign the spaceship object’s 'Active Mission' property to it.
+Checkpoint 2 Passed
+
+2.
+
+Using bracket notation and the propName variable provided, console.log() the value of the 'Active Mission' property.
+solution;
+let spaceship = {
+  'Fuel Type' : 'Turbo Fuel',
+  'Active Mission' : true,
+  homePlanet : 'Earth', 
+  numCrew: 5
+ };
+
+let propName =  'Active Mission';
+
+// Write your code below
+const isActive=spaceship[propName]
+console.log(isActive)
+---
+you can access the keys of the objects and update them or delete them 
+also you can reassign the object to a new key values but if the object was const you can't do this thing; as you see
+const spaceship = {type: 'shuttle'};
+spaceship = {type: 'alien'}; // TypeError: Assignment to constant variable.
+spaceship.type = 'alien'; // Changes the value of the type property
+spaceship.speed = 'Mach 5'; // Creates a new key of 'speed' with a value of 'Mach 5'
+
+example;
+1.
+
+Reassign the color property of the spaceship object to have a value of 'glorious gold'
+Checkpoint 2 Passed
+
+2.
+
+Without changing lines 1 - 6, add a numEngines property with a numeric value between 1 and 10 to the spaceship object.
+Checkpoint 3 Passed
+
+3.
+
+Use the delete operator to remove the 'Secret Mission' property from the spaceship object.
+solution;
+let spaceship = {
+  'Fuel Type' : 'Turbo Fuel',
+  homePlanet : 'Earth',
+  color: 'silver',
+  'Secret Mission' : 'Discover life outside of Earth.'
+};
+
+// Write your code below
+spaceship.color='glorious gold';
+spaceship['numEngines']=5;
+delete spaceship['Secret Mission'];
+console.log(spaceship)
+spaceship.name='Air Space machine';
+console.log(spaceship)
+output;
+Start free trial
+Objects: Property Assignment
+Narrative and Instructions
+Learn
+Objects
+Property Assignment
+8 min
+
+Once we’ve defined an object, we’re not stuck with all the properties we wrote.
+Objects
+Preview: Docs A data type for organizing a set of custom properties and behaviors.
+are mutable, meaning we can update them after we create them!
+
+We can use either dot notation (.) or bracket notation ([]), along with the assignment operator (=), to add new key-value pairs to an object or change an existing property.
+
+Diagram showing two ways to assign values to JavaScript object properties. Top line uses bracket notation: 'spaceship' (in purple, labeled 'OBJECT') followed by ['Fuel Type'] (in gold, labeled 'PROPERTY NAME'), then an equals sign (labeled 'ASSIGNMENT OPERATOR'), and 'vegetable oil' (in gray, labeled 'VALUE'), ending with a semicolon. Bottom line uses dot notation: 'spaceship' (in purple) followed by .color (in gold) equals 'gold' (in gray) with a semicolon.
+
+One of two things can happen with property assignment:
+
+    If the property already exists on the object, whatever value it held before will be replaced with the newly assigned value.
+    If there was no property with that name, a new property will be added to the object.
+
+It’s important to know that although we can’t reassign an object declared with const, we can still mutate it, meaning we can add new properties and change the properties that are there.
+
+const spaceship = {type: 'shuttle'};
+spaceship = {type: 'alien'}; // TypeError: Assignment to constant variable.
+spaceship.type = 'alien'; // Changes the value of the type property
+spaceship.speed = 'Mach 5'; // Creates a new key of 'speed' with a value of 'Mach 5'
+
+Copy to Clipboard
+
+We can delete a property from an object with the delete operator.
+
+const spaceship = {
+  'Fuel Type': 'Turbo Fuel',
+  homePlanet: 'Earth',
+  mission: 'Explore the universe' 
+};
+ 
+delete spaceship.mission;  // Removes the mission property
+
+Copy to Clipboard
+
+Instructions
+
+    Checkpoint 1 Passed
+
+    1.
+
+    Reassign the color property of the spaceship object to have a value of 'glorious gold'
+    Checkpoint 2 Passed
+
+    2.
+
+    Without changing lines 1 - 6, add a numEngines property with a numeric value between 1 and 10 to the spaceship object.
+    Checkpoint 3 Passed
+
+    3.
+
+    Use the delete operator to remove the 'Secret Mission' property from the spaceship object.
+
+Concept Review
+Want to quickly review some of the concepts you’ve been learning? Take a look at this material's cheatsheet!
+Community Support
+Still have questions? Get help from the Codecademy community.
+Code Editor
+Open file navigation
+Close app.js
+Enter Fullscreen Code Editor
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+Loading Complete
+Output-only Terminal
+Output:
+
+{
+  'Fuel Type': 'Turbo Fuel',
+  homePlanet: 'Earth',
+  color: 'glorious gold',
+  numEngines: 5
+}
+{
+  'Fuel Type': 'Turbo Fuel',
+  homePlanet: 'Earth',
+  color: 'glorious gold',
+  numEngines: 5,
+  name: 'Air Space machine'
+}
+
+---
+to write a method inside an object and access this method ; 
+1.
+
+Below the retreatMessage variable in the code editor, create an alienShip object. It should contain a method .retreat(), which should console.log() the retreatMessage.
+Checkpoint 2 Passed
+
+2.
+
+Add another method to the alienShip object literal. This method, .takeOff(), should console.log() the string 'Spim... Borp... Glix... Blastoff!'.
+Checkpoint 3 Passed
+
+3.
+
+Invoke the two methods: first .retreat(), then .takeOff().
+let retreatMessage = 'We no longer wish to conquer your planet. It is full of dogs, which we do not care for.';
+solution;
+// Write your code below
+let alienShip={
+  retreat:function(){
+    console.log(retreatMessage);
+  },takeOff(){
+    console.log('Spim... Borp... Glix... Blastoff!');
+  }
+};
+alienShip.retreat();
+alienShip.takeOff();
+// or you can write retreat() by the new way it as this
+alienShip={
+  retreat(){
+    console.log(retreatMessage);
+  }
+}
+alienShip.retreat()
+output;
+Start free trial
+Objects: Methods
+Narrative and Instructions
+Learn
+Objects
+Methods
+11 min
+
+When the data stored on an object is a function, we call that a
+method
+Preview: Docs Loading link description
+. A property is what an object has, while a method is what an object does.
+
+Do object methods seem familiar? That’s because we’ve been using them all along! For example, console is a global JavaScript object and .log() is a method on that object. Math is also a global JavaScript object, and .floor() is a method on it.
+
+We can include methods in our object literals by creating ordinary, colon-separated key-value pairs. The key serves as our method’s name, while the value is an anonymous function expression.
+
+const alienShip = {
+  invade: function () { 
+    console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+  }
+};
+
+Copy to Clipboard
+
+With the new method syntax introduced in ES6, we can omit the colon and the function keyword.
+
+const alienShip = {
+  invade () { 
+    console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+  }
+};
+
+Copy to Clipboard
+
+Object methods are invoked by appending the object’s name with the dot operator, followed by the method name and parentheses:
+
+alienShip.invade(); // Prints 'Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.'
+
+Copy to Clipboard
+
+Instructions
+
+    Checkpoint 1 Passed
+
+    1.
+
+    Below the retreatMessage variable in the code editor, create an alienShip object. It should contain a method .retreat(), which should console.log() the retreatMessage.
+    Checkpoint 2 Passed
+
+    2.
+
+    Add another method to the alienShip object literal. This method, .takeOff(), should console.log() the string 'Spim... Borp... Glix... Blastoff!'.
+    Checkpoint 3 Passed
+
+    3.
+
+    Invoke the two methods: first .retreat(), then .takeOff().
+solution;
+let retreatMessage = 'We no longer wish to conquer your planet. It is full of dogs, which we do not care for.';
+
+// Write your code below
+let alienShip={
+  retreat:function(){
+    console.log(retreatMessage);
+  },takeOff(){
+    console.log('Spim... Borp... Glix... Blastoff!');
+  }
+};
+alienShip.retreat();
+alienShip.takeOff();
+// or you can write retreat() by the new way it as this
+alienShip={
+  retreat(){
+    console.log(retreatMessage);
+  }
+}
+alienShip.retreat()
+Output:
+
+We no longer wish to conquer your planet. It is full of dogs, which we do not care for.
+Spim... Borp... Glix... Blastoff!
+We no longer wish to conquer your planet. It is full of dogs, which we do not care for.
+
+---
+what if the object contain another objects how to access the key-values of these objects;
+ex;
+Create a variable capFave and assign the favorite food of captain (the element in the “0th” index of 'favorite foods' array) to it. Make sure to use bracket and dot notation to get the value of the food through nested access (don’t just copy the value into the variable!)
+Checkpoint 2 Passed
+
+2.
+
+Right now, the passengers property has a value of null. Instead, assign as its value an array of objects. These objects should represent the spaceship object’s passengers as individual objects. Make at least one passenger object in the array that has at least one key-value pair.
+Checkpoint 3 Passed
+
+3.
+
+Create a variable firstPassenger and assign the first passenger as its value (the element in the “0th” index of the spaceship.passengers array you just made). Make sure to use bracket and dot notation to get the passenger object through nested access (don’t just copy the object into the variable!)
+
+solution;
+let spaceship = {
+  passengers: null,
+  telescope: {
+    yearBuilt: 2018,
+    model: "91031-XLT",
+    focalLength: 2032 
+  },
+  crew: {
+    captain: { 
+      name: 'Sandra', 
+      degree: 'Computer Engineering', 
+      encourageTeam() { console.log('We got this!') },
+     'favorite foods': ['cookies', 'cakes', 'candy', 'spinach'] }
+  },
+  engine: {
+    model: "Nimbus2000"
+  },
+  nanoelectronics: {
+    computer: {
+      terabytes: 100,
+      monitors: "HD"
+    },
+    'back-up': {
+      battery: "Lithium",
+      terabytes: 50
+    }
+  }
+}; 
+
+const capFave=spaceship.crew.captain['favorite foods'][0];
+console.log(capFave);
+spaceship.passengers=[{
+  passenger1:'Mohamed'
+}];
+const firstPassenger=spaceship.passengers[0].passenger1;
+console.log(firstPassenger)
+output;
+cookies
+Mohamed
+---
+you can update or delete any key-value(property) of an object using methods and insert into these methods the object as a parameter 
+ex;
+1.
+
+Write a function greenEnergy() that has an object as a parameter and sets that object’s 'Fuel Type' property to 'avocado oil'.
+Checkpoint 2 Passed
+
+2.
+
+Write a function remotelyDisable() that has an object as a parameter and sets (or reassigns) that object’s disabled property to true.
+Checkpoint 3 Passed
+
+3.
+
+Call your two functions with the spaceship object in the code editor, then console.log() the spaceship object to confirm those properties were changed/added.
+soultion;
+let spaceship = {
+  'Fuel Type' : 'Turbo Fuel',
+  homePlanet : 'Earth'
+};
+
+// Write your code below
+let greenEnergy=obj =>{
+  obj['Fuel Type']='avocado oil';
+}
+let remotelyDisable=obj=>{
+  obj['disabled']=true;
+}
+greenEnergy(spaceship)
+remotelyDisable(spaceship)
+console.log(spaceship)
+output;
+{ 'Fuel Type': 'avocado oil', homePlanet: 'Earth', disabled: true }
+---
+to loop over an object -> use for( let thing in object){
+body of loop
+}
+
+ex;
+1.
+
+Using for...in, iterate through the spaceship.crew object in the code editor and console.log() a list of crew roles and names in the following format: '[crew member's role]: [crew member's name]', e.g.,'chief officer: Dan'.
+Checkpoint 2 Passed
+
+2.
+
+Using for...in, iterate through the spaceship.crew object in the code editor and console.log() a list of crew names and degrees in the following format: '[crew member's name]: [crew member's degree]', e.g.,'Lily: Computer Engineering'
+solution;
+let spaceship = {
+    crew: {
+    captain: { 
+        name: 'Lily', 
+        degree: 'Computer Engineering', 
+        cheerTeam() { console.log('You got this!') } 
+        },
+    'chief officer': { 
+        name: 'Dan', 
+        degree: 'Aerospace Engineering', 
+        agree() { console.log('I agree, captain!') } 
+        },
+    medic: { 
+        name: 'Clementine', 
+        degree: 'Physics', 
+        announce() { console.log(`Jets on!`) } },
+    translator: {
+        name: 'Shauna', 
+        degree: 'Conservation Science', 
+        powerFuel() { console.log('The tank is full!') } 
+        }
+    }
+}; 
+
+// Write your code below
+
+for (let crewmember in spaceship.crew){
+  console.log(`${crewmember}:${spaceship.crew[crewmember].name}`);
+  console.log(`${spaceship.crew[crewmember].name}: ${spaceship.crew[crewmember].degree}`);
+  ouput 
+  captain:Lily
+Lily: Computer Engineering
+chief officer:Dan
+Dan: Aerospace Engineering
+medic:Clementine
+Clementine: Physics
+translator:Shauna
+Shauna: Conservation Science
+notes;
+
+    Objects store collections of key-value pairs.
+    Each key-value pair is a property — when a property is a function, it is known as a method.
+    An object literal is composed of comma-separated key-value pairs surrounded by curly braces.
+    We can access, add, or edit a property within an object by using dot notation or bracket notation.
+    We can add
+    methods
+    Preview: Docs Loading link description
+    to our object literals using key-value syntax with anonymous function expressions as values or by using the new ES6 method syntax.
+    We can navigate complex, nested objects by chaining
+    operators
+    Preview: Docs An operator is a special character or series of characters that perform a task in JavaScript.
+    .
+    Objects are mutable — we can change their properties even when they’re declared with const.
+    Objects are passed by reference — when we make changes to an object passed into a function, those changes are permanent.
+    We can iterate through objects using the for...in syntax.
+
+
